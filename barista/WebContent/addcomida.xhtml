@@ -14,30 +14,36 @@
     <p:panel id="panel" header="Cadastro de Comidas">
         <p:messages id="messages" />
         
-        <p:panelGrid columns="2">
+        <p:toolbar style="width: 491px;">
+			<p:toolbarGroup align="left">
+				<p:commandButton value="Adicionar" action="#{comidaBean.adicionar()}" update="@form"/>
+			</p:toolbarGroup>
+		</p:toolbar>
+        
+        <p:panelGrid columns="2" style="width: 500px;">
         
             <p:outputLabel for="nome" value="Nome:" />
-            <p:inputText id="nome" required="true" requiredMessage="Nome: Campo Obrigatório"/>
+            <p:inputText id="nome" value="#{comidaBean.comida.nome}" required="true" requiredMessage="Nome: Campo Obrigatório"/>
  
             <p:outputLabel for="estoque" value="Estoque:" />
-            <p:inputText id="estoque" required="true" requiredMessage="Estoque: Campo Obrigatório" />
+            <p:inputNumber id="estoque" value="#{comidaBean.comida.estoque}" required="true" requiredMessage="Estoque: Campo Obrigatório" />
  
             <p:outputLabel for="preco" value="Preço:" />            
-            <p:inputNumber id="preco" value="" symbol="R$ " decimalSeparator="," thousandSeparator="." required="true" requiredMessage="Preço: Campo Obrigatório">
+            <p:inputNumber id="preco" value="#{comidaBean.comida.preco}" symbol="R$ " decimalSeparator="," thousandSeparator="." required="true" requiredMessage="Preço: Campo Obrigatório">
             </p:inputNumber>
             
         	<p:outputLabel for="categoria" value="Categoria:" />
-        	<p:selectOneRadio id="categoria" value="" required="true" requiredMessage="Categoria: Escolha uma opção">
+        	<p:selectOneRadio id="categoria" value="#{comidaBean.comida.categoria}" required="true" requiredMessage="Categoria: Escolha uma opção">
             	<f:selectItem itemLabel="Salgados" itemValue="Salgados" />
             	<f:selectItem itemLabel="Sobremesas" itemValue="Sobremesas" />
         	</p:selectOneRadio>
         	
-        	<h:outputLabel value="Diet: " />
-        	<p:selectBooleanCheckbox value="" />
+        	<p:outputLabel for="diet" value="Diet:" />
+        	<p:selectOneRadio id="diet" value="#{comidaBean.comida.diet}" required="true" requiredMessage="Diet: Escolha uma opção">
+            	<f:selectItem itemLabel="Sim" itemValue="Sim" />
+            	<f:selectItem itemLabel="Não" itemValue="Não" />
+        	</p:selectOneRadio>
         	
-        	<h:outputText value="" />
-        	<p:commandButton value="Adicionar" update="panel"  />
-        
         </p:panelGrid>
                       
     </p:panel>

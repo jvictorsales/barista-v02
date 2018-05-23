@@ -13,7 +13,7 @@ import br.model.Bebida;
 public class BebidaBean {
 	
 	private Bebida bebida = new Bebida();
-	private List<Bebida> bebidas = new ArrayList<Bebida>();
+	private List<Bebida> bebidas = new ArrayList<>();
 	
 	public void adicionar() {
 		this.bebidas.add(bebida);
