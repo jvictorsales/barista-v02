@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:ui="http://java.sun.com/jsf/facelets" template="index.xhtml">
+
+<ui:define name="content">
+<div style="width: 1000px; margin: auto;">
+
+<h:form>	
+	
+    <p:panel id="panel" header="Cadastro de Cafés">       
+        
+        <p:toolbar style="width: 491px;">
+			<p:toolbarGroup align="left">
+				<p:commandButton value="Adicionar" action="#{bebidaBean.adicionar()}" update="@form"/>
+			</p:toolbarGroup>
+		</p:toolbar>
+        
+        <p:messages id="messages" />
+        
+        <p:panelGrid columns="2" style="width: 500px;">
+        
+            <p:outputLabel for="nome" value="Nome:" />
+            <p:inputText id="nome" value="#{bebidaBean.bebida.nome}" required="true" requiredMessage="Nome: Campo Obrigatório"/>
+ 
+            <p:outputLabel for="condimentos" value="Condimentos:" />
+            <p:inputText id="condimentos" value="#{bebidaBean.bebida.condimentos}" required="true" requiredMessage="Condimentos: Campo Obrigatório" />
+ 
+            <p:outputLabel for="preco" value="Preço:" />            
+            <p:inputNumber id="preco" value="#{bebidaBean.bebida.preco}" symbol="R$ " decimalSeparator="," thousandSeparator="." required="true" requiredMessage="Preço: Campo Obrigatório">
+            </p:inputNumber>
+            
+        	<p:outputLabel for="categoria" value="Categoria:" />
+        	<p:selectOneRadio id="categoria" value="#{bebidaBean.bebida.categoria}" required="true" requiredMessage="Categoria: Escolha uma opção">
+            	<f:selectItem itemLabel="Cappuccinos" itemValue="Cappuccinos" />
+            	<f:selectItem itemLabel="Espressos" itemValue="Espressos" />
+        	</p:selectOneRadio>
+        	
+        	<h:outputLabel value="Diet: " />
+        	<p:selectBooleanCheckbox value="#{bebidaBean.bebida.diet}" />
+        	
+        </p:panelGrid>
+    </p:panel>
+</h:form>
+
+</div>
+</ui:define>
+</ui:decorate>

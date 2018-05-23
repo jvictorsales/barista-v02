@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="index.xhtml">
+
+	<ui:define name="content">
+		<div style="width: 1000px; margin: auto;">
+			<h2>Pesquisar comidas cadastradas</h2>
+
+			<h:form>
+				<p:inputText placeholder="Nome do produto" />
+				<p:button outcome="pesquisarcomida" value="Pesquisar">
+					<f:param name="nome" value="" />
+				</p:button>
+			</h:form>
+
+			<h:form>
+				<p:dataTable var="comida" value="#{}" rows="10"
+					paginator="true"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15">
+
+					<p:column headerText="Id">
+						<h:outputText value="#{comida.id}" />
+					</p:column>
+
+					<p:column headerText="Nome">
+						<h:outputText value="#{comida.nome}" />
+					</p:column>
+
+					<p:column headerText="Estoque">
+						<h:outputText value="#{comida.estoque}" />
+					</p:column>
+
+					<p:column headerText="Preço">
+						<h:outputText value="#{comida.preco}" />
+					</p:column>
+
+					<p:column headerText="Categoria">
+						<h:outputText value="#{comida.categoria}" />
+					</p:column>
+
+					<p:column headerText="Diet">
+						<h:outputText value="#{comida.diet}" />
+					</p:column>
+
+					<f:facet name="paginatorTopLeft">
+						<p:commandButton type="button" icon="fa fa-sync" />
+					</f:facet>
+
+					<f:facet name="paginatorBottomRight">
+						<p:commandButton type="button" icon="fa fa-cloud-upload" />
+					</f:facet>
+				</p:dataTable>
+			</h:form>
+
+		</div>
+	</ui:define>
+</ui:decorate>
