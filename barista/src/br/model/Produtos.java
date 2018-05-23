@@ -6,7 +6,7 @@ public abstract class Produtos{
 	private String nome;
 	private Double preco;
 	private String categoria;
-	private Boolean diet;
+	private String diet;
 	
 	public Long getId() { return id; }
 	public void setId(Long id) { this.id = id; }
@@ -20,7 +20,7 @@ public abstract class Produtos{
 	public String getCategoria() { return categoria; }
 	public void setCategoria(String categoria) { this.categoria = categoria; }
 	
-	public Boolean getDiet() { return diet; }
-	public void setDiet(Boolean diet) { this.diet = diet; }
+	public String getDiet() { return diet; }
+	public void setDiet(String diet) { this.diet = diet; }
 	
 }

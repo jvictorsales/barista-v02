@@ -9,10 +9,29 @@
 <ui:define name="content">
 <div style="width: 1000px; margin: auto;">
 
-
-
-
-
+	<p:dataTable value="#{bebidaBean.bebidas}" var="bebida">
+		
+		<p:column headerText="Nome">
+			<h:outputText value="#{bebida.nome}" />
+		</p:column>
+		
+		<p:column headerText="Condimentos">
+			<h:outputText value="#{bebida.condimentos}" />
+		</p:column>
+		
+		<p:column headerText="Preço">
+			<h:outputText value="#{bebida.preco}" />
+		</p:column>
+		
+		<p:column headerText="Categoria">
+			<h:outputText value="#{bebida.categoria}" />
+		</p:column>
+		
+		<p:column headerText="Diet">
+			<h:outputText value="#{bebida.diet}" />
+		</p:column>
+	
+	</p:dataTable>
 </div>
 </ui:define>
 </ui:decorate>

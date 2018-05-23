@@ -13,14 +13,14 @@
 	
     <p:panel id="panel" header="Cadastro de Cafés">       
         
+        <p:messages id="messages" />
+        
         <p:toolbar style="width: 491px;">
 			<p:toolbarGroup align="left">
 				<p:commandButton value="Adicionar" action="#{bebidaBean.adicionar()}" update="@form"/>
 			</p:toolbarGroup>
 		</p:toolbar>
-        
-        <p:messages id="messages" />
-        
+		
         <p:panelGrid columns="2" style="width: 500px;">
         
             <p:outputLabel for="nome" value="Nome:" />
@@ -39,8 +39,11 @@
             	<f:selectItem itemLabel="Espressos" itemValue="Espressos" />
         	</p:selectOneRadio>
         	
-        	<h:outputLabel value="Diet: " />
-        	<p:selectBooleanCheckbox value="#{bebidaBean.bebida.diet}" />
+        	<p:outputLabel for="diet" value="Diet:" />
+        	<p:selectOneRadio id="diet" value="#{bebidaBean.bebida.diet}" required="true" requiredMessage="Diet: Escolha uma opção">
+            	<f:selectItem itemLabel="Sim" itemValue="Sim" />
+            	<f:selectItem itemLabel="Não" itemValue="Não" />
+        	</p:selectOneRadio>
         	
         </p:panelGrid>
     </p:panel>
