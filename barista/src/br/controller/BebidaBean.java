@@ -2,7 +2,6 @@ package br.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import br.model.Bebida;
@@ -18,6 +17,15 @@ public class BebidaBean {
 	public void adicionar() {
 		this.bebidas.add(bebida);
 		this.bebida = new Bebida();
+	}
+	
+	public Bebida pesquisar(String nome) {
+		for (Bebida bebida : bebidas) {
+			if(bebida.getNome().contains(nome)) {
+				return bebida;
+			}
+		}
+		return new Bebida();
 	}
 	
 	public Bebida getBebida() {
